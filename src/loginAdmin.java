@@ -1,4 +1,5 @@
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -57,6 +58,11 @@ public class loginAdmin extends javax.swing.JFrame {
 
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jCheckBox1.setText("Show Password");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 360, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -98,9 +104,19 @@ public class loginAdmin extends javax.swing.JFrame {
             setVisible(false);
             new adminHome().setVisible(true);
         }else{
-            
+            ImageIcon icon = new ImageIcon("Incorrect Password.PNG");
+            JOptionPane.showMessageDialog(null, "<html><b style=\"color; red;  font-size: 10px\">Incorrect <br>Username or Password</b></html>","Show", JOptionPane.INFORMATION_MESSAGE, icon);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+        if(jCheckBox1.isSelected()){
+        jPasswordField1.setEchoChar((char)0);
+        }else{
+        jPasswordField1.setEchoChar('.');
+                }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**
      * @param args the command line arguments
